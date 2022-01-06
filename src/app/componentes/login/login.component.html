@@ -1,0 +1,34 @@
+<div class="parent clearfix">
+  <div class="bg-illustration">
+    <img src="https://i.ibb.co/Pcg0Pk1/logo.png" alt="logo">
+
+    <div class="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+  <div class="login">
+    <div class="container">
+      <h1>Bienvenido<br />Ingresa tus Credenciales</h1>
+
+      <div class="login-form">
+        <form action="">
+          <input type="text" id="usuarioAdminUsuario" name="email" #email="ngModel" [(ngModel)]="usuarioModel.email" placeholder="Email">
+          <input type="password" id="usuarioAdminPassword" name="password" #password="ngModel" [(ngModel)]="usuarioModel.password" placeholder="Password">
+
+          <div class="remember-form">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </div>
+
+          <button type="submit" (click)="credential()">LOG-IN</button>
+
+        </form>
+      </div>
+
+    </div>
+    </div>
+</div>

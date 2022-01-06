@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.87.0">
+    <title>Heroes · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/heroes/">
+
+  </head>
+  <body>
+
+<main>
+
+
+  <div class="b-example-divider"></div>
+
+  <div>
+  <h1 class="diferent">Mensajes Registrados</h1>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col">
+    <div class="d-grid gap-2 d-md-block">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarMessage">
+        <i class="bi bi-plus-square">Agregar Mensaje</i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+  <br>
+
+
+  <div *ngFor="let mes of messagesList">
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">{{mes.tags}}</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"></p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" data-bs-toggle="modal" data-bs-target="#modalVerMessage"
+        (click)="getMessagesID(mes._id)">Ver Mensajes</button>
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+
+    </div>
+  </div>
+</div>
+
+  <div class="b-example-divider mb-0"></div>
+</main>
+
+  </body>
+</html>
+
+
+<!-- Modal Agregar Mensaje-->
+<div class="modal fade" id="modalAgregarMessage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Mensaje</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputMessage" class="form-label">Message</label>
+            <input type="text" class="form-control" id="inputMessage" name="message" #message="ngModel"
+            [(ngModel)]="messagesIDModel.messages">
+          </div>
+          <div class="mb-3">
+            <label for="inputTag" class="form-label">Tags</label>
+            <input type="text" class="form-control" id="inputTag" name="tag" #tag="ngModel"
+            [(ngModel)]="messagesIDModel.tags">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal"
+        (click)="messages()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ver Mensaje-->
+
+<div class="modal fade" id="modalVerMessage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Mensaje</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputMessage2" class="form-label">Message</label>
+            <input type="text" class="form-control" id="inputMessage2" name="message2" #message2="ngModel"
+            [(ngModel)]="messagesIDModel.messages" disabled>
+          </div>
+          <div class="mb-3">
+            <label for="inputTag2" class="form-label">Tags</label>
+            <input type="text" class="form-control" id="inputTag2" name="tag2" #tag2="ngModel"
+            [(ngModel)]="messagesIDModel.tags" disabled>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
